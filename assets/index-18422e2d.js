@@ -1,4 +1,43 @@
-(function(){const o=document.createElement("link").relList;if(o&&o.supports&&o.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))c(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const i of t.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&c(i)}).observe(document,{childList:!0,subtree:!0});function r(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?t.credentials="include":e.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function c(e){if(e.ep)return;e.ep=!0;const t=r(e);fetch(e.href,t)}})();const l="/autofill-test/assets/javascript-8dac5379.svg",s="/autofill-test/vite.svg";function a(n){let o=0;const r=c=>{o=c,n.innerHTML=`count is ${o}`};n.addEventListener("click",()=>r(o+1)),r(0)}document.querySelector("#app").innerHTML=`
+(function () {
+  const o = document.createElement("link").relList;
+  if (o && o.supports && o.supports("modulepreload")) return;
+  for (const e of document.querySelectorAll('link[rel="modulepreload"]')) c(e);
+  new MutationObserver(e => {
+    for (const t of e)
+      if (t.type === "childList")
+        for (const i of t.addedNodes)
+          i.tagName === "LINK" && i.rel === "modulepreload" && c(i);
+  }).observe(document, { childList: !0, subtree: !0 });
+  function r(e) {
+    const t = {};
+    return (
+      e.integrity && (t.integrity = e.integrity),
+      e.referrerPolicy && (t.referrerPolicy = e.referrerPolicy),
+      e.crossOrigin === "use-credentials"
+        ? (t.credentials = "include")
+        : e.crossOrigin === "anonymous"
+        ? (t.credentials = "omit")
+        : (t.credentials = "same-origin"),
+      t
+    );
+  }
+  function c(e) {
+    if (e.ep) return;
+    e.ep = !0;
+    const t = r(e);
+    fetch(e.href, t);
+  }
+})();
+const l = "/autofill-test/assets/javascript-8dac5379.svg",
+  s = "/autofill-test/vite.svg";
+function a(n) {
+  let o = 0;
+  const r = c => {
+    (o = c), (n.innerHTML = `count is ${o}`);
+  };
+  n.addEventListener("click", () => r(o + 1)), r(0);
+}
+document.querySelector("#app").innerHTML = `
   <div>
     <a href="https://vitejs.dev" target="_blank">
       <img src="${s}" class="logo" alt="Vite logo" />
@@ -16,7 +55,7 @@
     <form >
       <input type="text" placeholder="firstname" required />
       <input type="text" placeholder="login" />
-      <input type="text" placeholder="passwod" />
+      <input type="password" placeholder="passwod" />
       <button type="submit">submit</button>
     </form>
     <form >
@@ -28,4 +67,5 @@
       <button type="submit">submit</button>
     </form>
   </div>
-`;a(document.querySelector("#counter"));
+`;
+a(document.querySelector("#counter"));
