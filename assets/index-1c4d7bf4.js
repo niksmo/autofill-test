@@ -16,7 +16,7 @@
     <form >
       <input type="text" placeholder="firstname" required />
       <input type="text" placeholder="login" />
-      <input type="text" placeholder="passwod" />
+      <input type="password" placeholder="passwod" />
       <button type="submit">submit</button>
     </form>
     <form >
